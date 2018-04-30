@@ -3,4 +3,4 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/LinearRecyclerView"
     android:id="@+id/rvUsers"
-    tools:context=".MainActivity" />
+    tools:context=".list.view.UsersListActivity" />

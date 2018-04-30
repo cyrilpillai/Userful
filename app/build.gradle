@@ -48,6 +48,7 @@ dependencies {
     kapt Deps.kaptLifeCycle
     kapt Deps.kaptRoom
     kapt Deps.kaptDagger
+    kapt Deps.kaptDaggerAndroid
 
     testImplementation Deps.testJUnit
     testImplementation Deps.testLiveData
