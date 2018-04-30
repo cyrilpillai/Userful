@@ -11,11 +11,16 @@
     <style name="RecyclerView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:scrollbars">none</item>
-        <item name="android:overScrollMode">never</item>
     </style>
 
     <style name="LinearRecyclerView" parent="RecyclerView">
         <item name="layoutManager">android.support.v7.widget.LinearLayoutManager</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+
+    <style name="ClickableView">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
     </style>
 </resources>

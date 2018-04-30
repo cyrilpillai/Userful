@@ -21,27 +21,28 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
 
 @Module
 class AppModule {
 
     @Provides
-    @Reusable
+    @Singleton
     fun providesContext(application: Application): Context = application
 
 
     @Provides
-    @Reusable
+    @Singleton
     fun providesApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
 
     @Provides
-    @Reusable
+    @Singleton
     fun providesScheduler(): Scheduler = AppScheduler()
 
 
     @Provides
-    @Reusable
+    @Singleton
     fun providesRetrofit(okHttpClient: OkHttpClient,
                          gsonConverterFactory: GsonConverterFactory,
                          rxJava2CallAdapterFactory: RxJava2CallAdapterFactory): Retrofit =
@@ -53,7 +54,7 @@ class AppModule {
 
 
     @Provides
-    @Reusable
+    @Singleton
     fun providesOkHttpClient(cache: Cache, stethoInterceptor: StethoInterceptor): OkHttpClient =
             OkHttpClient.Builder()
                     .cache(cache)
@@ -64,38 +65,38 @@ class AppModule {
                     .build()
 
     @Provides
-    @Reusable
+    @Singleton
     fun providesOkhttpCache(context: Context): Cache =
             Cache(context.cacheDir, 10 * 1024 * 1024)
 
 
     @Provides
-    @Reusable
+    @Singleton
     fun providesGsonConverterFactory(): GsonConverterFactory = GsonConverterFactory.create()
 
     @Provides
-    @Reusable
+    @Singleton
     fun providesRxJava2CallAdapterFactory(): RxJava2CallAdapterFactory =
             RxJava2CallAdapterFactory.create()
 
     @Provides
-    @Reusable
+    @Singleton
     fun providesStethoInterceptor(): StethoInterceptor = StethoInterceptor()
 
     @Provides
-    @Reusable
+    @Singleton
     fun providesOkhttp3Downloader(okHttpClient: OkHttpClient): OkHttp3Downloader =
             OkHttp3Downloader(okHttpClient)
 
     @Provides
-    @Reusable
+    @Singleton
     fun providesPicasso(context: Context, okHttp3Downloader: OkHttp3Downloader): Picasso =
             Picasso.Builder(context)
                     .downloader(okHttp3Downloader)
                     .build()
 
     @Provides
-    @Reusable
+    @Singleton
     fun providesDatabase(context: Context): UserfulDb =
             Room.databaseBuilder(context,
                     UserfulDb::class.java,
@@ -103,6 +104,6 @@ class AppModule {
                     .build()
 
     @Provides
-    @Reusable
+    @Singleton
     fun providesUserDao(userfulDb: UserfulDb): UserDao = userfulDb.userDao()
 }

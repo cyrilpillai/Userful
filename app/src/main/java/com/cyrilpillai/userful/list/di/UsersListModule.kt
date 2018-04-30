@@ -5,6 +5,7 @@ import com.cyrilpillai.userful.list.model.UsersListContract
 import com.cyrilpillai.userful.list.model.UsersListLocalDataSource
 import com.cyrilpillai.userful.list.model.UsersListRemoteDataSource
 import com.cyrilpillai.userful.list.model.UsersListRepository
+import com.cyrilpillai.userful.list.view.adapter.UserAdapter
 import com.cyrilpillai.userful.list.viewmodel.UsersListViewModelFactory
 import com.cyrilpillai.userful.networking.schedulers.Scheduler
 import com.cyrilpillai.userful.networking.service.ApiService
@@ -40,5 +41,8 @@ class UsersListModule {
 
 
     @Provides
-    fun compositeDisposable(): CompositeDisposable = CompositeDisposable()
+    fun providesCompositeDisposable(): CompositeDisposable = CompositeDisposable()
+
+    @Provides
+    fun providesUserAdapter(): UserAdapter = UserAdapter()
 }

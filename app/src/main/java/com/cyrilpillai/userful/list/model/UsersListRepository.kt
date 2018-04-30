@@ -21,7 +21,7 @@ class UsersListRepository(
         usersOutcome.loading(true)
         if (forceUpdate) fetchUsersFromRemote()
         localDataSource.fetchUsers()
-                .timeout(1, TimeUnit.SECONDS)
+                /*.timeout(1, TimeUnit.SECONDS)
                 .onErrorResumeNext(Flowable.empty())
                 .flatMapIterable { it }
                 .map {
@@ -30,19 +30,19 @@ class UsersListRepository(
                             name = "${it.name.firstName} ${it.name.lastName}",
                             profileImage = it.picture.thumbnail)
                 }
-                .toList()
+                .toList()*/
                 .performOnBackOutOnMain(scheduler)
                 .subscribe(
                         { response ->
-                            usersOutcome.success(response)
-                            /*usersOutcome.success(mutableListOf<UserEntity>().apply {
+                            usersOutcome.success(mutableListOf<UserEntity>().apply {
                                 response.forEach {
                                     add(UserEntity(
-                                            it.uid,
-                                            "${it.name.firstName} ${it.name.lastName}",
-                                            it.picture.thumbnail))
+                                            id = it.uid,
+                                            name = "${it.name.firstName.capitalize()} ${it.name.lastName.capitalize()}",
+                                            location = "${it.location.city.capitalize()}, ${it.location.state.capitalize()}",
+                                            profileImage = it.picture.thumbnail))
                                 }
-                            })*/
+                            })
                         },
                         { error -> fetchUsersFromRemote() }
                 )

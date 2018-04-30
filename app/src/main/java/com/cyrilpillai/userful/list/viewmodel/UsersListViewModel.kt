@@ -19,7 +19,7 @@ class UsersListViewModel(
     }
 
     fun getUsers(forceUpdate: Boolean = false) {
-        repository.fetchUsers(forceUpdate)
+        if (usersLiveData.value == null || forceUpdate) repository.fetchUsers(forceUpdate)
     }
 
     override fun onCleared() {
