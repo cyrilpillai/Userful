@@ -1,13 +1,14 @@
 package com.cyrilpillai.userful.list.model
 
+import android.util.Log
 import com.cyrilpillai.userful.extensions.*
 import com.cyrilpillai.userful.list.UserEntity
 import com.cyrilpillai.userful.networking.entity.Outcome
 import com.cyrilpillai.userful.networking.schedulers.Scheduler
-import io.reactivex.Flowable
+import com.cyrilpillai.userful.utils.Constants
+import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.BehaviorSubject
-import java.util.concurrent.TimeUnit
 
 class UsersListRepository(
         private val localDataSource: UsersListContract.LocalDataSource,
@@ -18,31 +19,26 @@ class UsersListRepository(
     override val usersOutcome: BehaviorSubject<Outcome<List<UserEntity>>> = BehaviorSubject.create()
 
     override fun fetchUsers(forceUpdate: Boolean) {
+        Log.d(Constants.APP_NAME, "fetchUsers: ")
         usersOutcome.loading(true)
         if (forceUpdate) fetchUsersFromRemote()
         localDataSource.fetchUsers()
-                /*.timeout(1, TimeUnit.SECONDS)
-                .onErrorResumeNext(Flowable.empty())
-                .flatMapIterable { it }
-                .map {
-                    UserEntity(
-                            id = it.uid,
-                            name = "${it.name.firstName} ${it.name.lastName}",
-                            profileImage = it.picture.thumbnail)
-                }
-                .toList()*/
                 .performOnBackOutOnMain(scheduler)
                 .subscribe(
                         { response ->
-                            usersOutcome.success(mutableListOf<UserEntity>().apply {
-                                response.forEach {
-                                    add(UserEntity(
-                                            id = it.uid,
-                                            name = "${it.name.firstName.capitalize()} ${it.name.lastName.capitalize()}",
-                                            location = "${it.location.city.capitalize()}, ${it.location.state.capitalize()}",
-                                            profileImage = it.picture.thumbnail))
-                                }
-                            })
+                            if (response.isNotEmpty()) {
+                                usersOutcome.success(mutableListOf<UserEntity>().apply {
+                                    response.forEach {
+                                        add(UserEntity(
+                                                id = it.uid,
+                                                name = "${it.name.firstName.capitalize()} ${it.name.lastName.capitalize()}",
+                                                location = "${it.location.city.capitalize()}, ${it.location.state.capitalize()}",
+                                                profileImage = it.picture.thumbnail))
+                                    }
+                                })
+                            } else {
+                                fetchUsersFromRemote()
+                            }
                         },
                         { error -> fetchUsersFromRemote() }
                 )
@@ -50,14 +46,20 @@ class UsersListRepository(
     }
 
     private fun fetchUsersFromRemote() {
+        Log.d(Constants.APP_NAME, "fetchUsersFromRemote: ")
         remoteDataSource.fetchUsers()
-                .performOnBack(scheduler)
+                .performOnBackOutOnMain(scheduler)
                 .subscribe(
-                        { response ->
-                            localDataSource.deleteUsers()
-                            localDataSource.insertUsers(response)
+                        {
+                            Single.just(it)
+                                    .performOnBack(scheduler)
+                                    .subscribe { data ->
+                                        localDataSource.deleteAllUsers()
+                                        localDataSource.insertUsers(data)
+                                    }
+                                    .dispose()
                         },
-                        { error -> error.printStackTrace()/*usersOutcome.onError(error)*/ }
+                        { error -> usersOutcome.failed(error) }
                 )
                 .addTo(compositeDisposable)
     }

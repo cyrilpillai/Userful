@@ -1,6 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/LinearRecyclerView"
-    android:id="@+id/rvUsers"
-    tools:context=".list.view.UsersListActivity" />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvUsers"
+        style="@style/LinearRecyclerView"
+        android:visibility="gone"
+        tools:context=".list.view.UsersListActivity"
+        tools:visibility="visible" />
+
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        style="@style/Base.Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/imError"
+        android:layout_width="@dimen/error_image_size"
+        android:layout_height="@dimen/error_image_size"
+        app:layout_constraintBottom_toTopOf="@+id/tvError"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/ic_error_robot"
+        app:tint="@color/accent" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvError"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding"
+        android:gravity="center"
+        android:text="@string/generic_error"
+        android:textColor="@color/accent"
+        app:layout_constraintBottom_toTopOf="@+id/btnTryAgain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imError" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btnTryAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding"
+        android:text="@string/try_again"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/accent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvError" />
+
+    <android.support.constraint.Group
+        android:id="@+id/groupError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tvError, imError, btnTryAgain"
+        tools:visibility="visible" />
+</android.support.constraint.ConstraintLayout>

@@ -2,4 +2,5 @@
 <resources>
     <dimen name="padding">12dp</dimen>
     <dimen name="icon_size">50dp</dimen>
+    <dimen name="error_image_size">100dp</dimen>
 </resources>

@@ -16,7 +16,7 @@ interface UsersListContract {
     interface LocalDataSource {
         fun insertUsers(users: List<User>)
         fun fetchUsers(): Flowable<List<User>>
-        fun deleteUsers()
+        fun deleteAllUsers()
     }
 
     interface RemoteDataSource {

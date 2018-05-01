@@ -18,4 +18,7 @@ interface UserDao {
 
     @Query("SELECT * FROM users WHERE uid=:id")
     fun getUserDetails(id: Long): Flowable<User>
+
+    @Query("DELETE FROM users")
+    fun truncate()
 }

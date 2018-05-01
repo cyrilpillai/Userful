@@ -2,6 +2,7 @@ package com.cyrilpillai.userful.list.viewmodel
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.ViewModel
+import android.util.Log
 import com.cyrilpillai.userful.db.entity.User
 import com.cyrilpillai.userful.extensions.toLiveData
 import com.cyrilpillai.userful.list.UserEntity
@@ -19,7 +20,7 @@ class UsersListViewModel(
     }
 
     fun getUsers(forceUpdate: Boolean = false) {
-        if (usersLiveData.value == null || forceUpdate) repository.fetchUsers(forceUpdate)
+        repository.fetchUsers(forceUpdate)
     }
 
     override fun onCleared() {

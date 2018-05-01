@@ -9,7 +9,7 @@ class UsersListRemoteDataSource(private val apiService: ApiService) :
         UsersListContract.RemoteDataSource {
     override fun fetchUsers(): Single<List<User>> {
         return apiService.getUsers(
-                mapOf("seed" to Constants.API_SEED, "results" to Constants.RESULT_LIMIT))
+                mapOf("seed" to Constants.APP_NAME, "results" to Constants.RESULT_LIMIT))
                 .map { it.users }
     }
 }

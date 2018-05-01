@@ -7,14 +7,19 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import com.cyrilpillai.userful.R
+import com.cyrilpillai.userful.R.id.*
 import com.cyrilpillai.userful.list.view.adapter.UserAdapter
 import com.cyrilpillai.userful.list.viewmodel.UsersListViewModel
 import com.cyrilpillai.userful.list.viewmodel.UsersListViewModelFactory
 import com.cyrilpillai.userful.networking.entity.Outcome
+import com.cyrilpillai.userful.utils.Constants
+import com.cyrilpillai.userful.utils.ViewStatus
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_users_list.*
-import retrofit2.Retrofit
 import javax.inject.Inject
 
 class UsersListActivity : AppCompatActivity() {
@@ -42,17 +47,56 @@ class UsersListActivity : AppCompatActivity() {
         viewModel.usersLiveData.observe(this, Observer {
             when (it) {
                 is Outcome.Progress -> {
-                    Log.d("Issue", "Loading: ${it.loading}")
+                    Log.d(Constants.APP_NAME, "Loading: ${it.loading}")
+                    changeViewVisibilies(ViewStatus.LOADING)
                 }
                 is Outcome.Success -> {
-                    Log.d("Issue", "Success: ${it.data.size}")
+                    Log.d(Constants.APP_NAME, "Success: ${it.data.size}")
                     userAdapter.setData(it.data)
+                    changeViewVisibilies(ViewStatus.SUCCESS)
                 }
                 is Outcome.Failure -> {
-                    Log.d("Issue", "Failure: ${it.e.localizedMessage}")
+                    Log.d(Constants.APP_NAME, "Failure: ${it.e.localizedMessage}")
+                    changeViewVisibilies(ViewStatus.ERROR)
                 }
             }
         })
-        viewModel.getUsers(true)
+        btnTryAgain.setOnClickListener { viewModel.getUsers() }
+        btnTryAgain.performClick()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_users_list, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menuRefresh -> {
+                viewModel.getUsers(forceUpdate = true)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun changeViewVisibilies(viewStatus: ViewStatus) {
+        when (viewStatus) {
+            ViewStatus.LOADING -> {
+                pbLoading.visibility = View.VISIBLE
+                rvUsers.visibility = View.GONE
+                groupError.visibility = View.GONE
+            }
+            ViewStatus.SUCCESS -> {
+                pbLoading.visibility = View.GONE
+                rvUsers.visibility = View.VISIBLE
+                groupError.visibility = View.GONE
+            }
+            ViewStatus.ERROR -> {
+                pbLoading.visibility = View.GONE
+                rvUsers.visibility = View.GONE
+                groupError.visibility = View.VISIBLE
+            }
+        }
     }
 }
