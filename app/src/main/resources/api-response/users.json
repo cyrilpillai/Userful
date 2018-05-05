@@ -1,0 +1,380 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": {
+        "title": "mrs",
+        "first": "elizabeth",
+        "last": "owens"
+      },
+      "location": {
+        "street": "6211 patrick street",
+        "city": "wicklow",
+        "state": "westmeath",
+        "postcode": 29413
+      },
+      "email": "elizabeth.owens@example.com",
+      "login": {
+        "username": "brownpeacock245",
+        "password": "blacky",
+        "salt": "nC0PlEWx",
+        "md5": "a4995ce221a553e305de6c675e192848",
+        "sha1": "407f130789ebe63a29256c703004ffb170ea3c5f",
+        "sha256": "846fb2da5db6bc0957656e0f7e39bf0a66c684a1cacda9eaa070f26e08b94b41"
+      },
+      "dob": "1964-09-25 01:41:49",
+      "registered": "2011-06-12 01:01:16",
+      "phone": "021-596-4340",
+      "cell": "081-694-3385",
+      "id": {
+        "name": "PPS",
+        "value": "8929771T"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/50.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/50.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/50.jpg"
+      },
+      "nat": "IE"
+    },
+    {
+      "gender": "female",
+      "name": {
+        "title": "mademoiselle",
+        "first": "lisa",
+        "last": "arnaud"
+      },
+      "location": {
+        "street": "2259 rue de l'abbaye",
+        "city": "mézières vd",
+        "state": "bern",
+        "postcode": 6701
+      },
+      "email": "lisa.arnaud@example.com",
+      "login": {
+        "username": "brownmeercat804",
+        "password": "guitar1",
+        "salt": "lLaH0Gy9",
+        "md5": "af013264d9486dfba9a78dc5ea88ac10",
+        "sha1": "2d0554e321310cf275ed3c60a3b53d278f0faaa5",
+        "sha256": "4a3bd045c5f5f6a95e20787e5499aae047a8097359711cb92eec27f359d2d3f4"
+      },
+      "dob": "1987-06-01 15:43:56",
+      "registered": "2005-09-25 03:04:55",
+      "phone": "(929)-137-8250",
+      "cell": "(938)-649-8126",
+      "id": {
+        "name": "AVS",
+        "value": "756.TRBW.GPOA.28"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/75.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/75.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/75.jpg"
+      },
+      "nat": "CH"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "mr",
+        "first": "jerry",
+        "last": "freeman"
+      },
+      "location": {
+        "street": "1275 pockrus page rd",
+        "city": "hartford",
+        "state": "arizona",
+        "postcode": 14898
+      },
+      "email": "jerry.freeman@example.com",
+      "login": {
+        "username": "smallbear599",
+        "password": "mohammed",
+        "salt": "SRDZl2WU",
+        "md5": "b64fe84c4a2757ff67f565cceef3bae4",
+        "sha1": "63089beeb16649b68afae9ff1aba6432628435d9",
+        "sha256": "52592ef88c1a633dd6a9190aa38479e068517072a7c808dd1d33789dac6537ff"
+      },
+      "dob": "1949-01-07 10:33:33",
+      "registered": "2002-12-22 11:11:44",
+      "phone": "(129)-687-0635",
+      "cell": "(033)-633-6230",
+      "id": {
+        "name": "SSN",
+        "value": "274-78-0553"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/87.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/87.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/87.jpg"
+      },
+      "nat": "US"
+    },
+    {
+      "gender": "female",
+      "name": {
+        "title": "madame",
+        "first": "chloé",
+        "last": "roger"
+      },
+      "location": {
+        "street": "3717 rue bossuet",
+        "city": "epautheyres",
+        "state": "schwyz",
+        "postcode": 2027
+      },
+      "email": "chloé.roger@example.com",
+      "login": {
+        "username": "crazybutterfly696",
+        "password": "rufus",
+        "salt": "XsNSZe06",
+        "md5": "fb24e0d6e48b99d38344e4d04e7e3176",
+        "sha1": "1f262f164261b6a0ebe0b5e0c44349fa31f39d73",
+        "sha256": "827d68b10b6b1069f8edb7b929be76e6246e311b30e53b04467ce1b12ee244cd"
+      },
+      "dob": "1953-08-01 12:34:56",
+      "registered": "2006-05-30 13:54:26",
+      "phone": "(898)-421-7359",
+      "cell": "(979)-016-2911",
+      "id": {
+        "name": "AVS",
+        "value": "756.MBPQ.GSAP.07"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/85.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/85.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/85.jpg"
+      },
+      "nat": "CH"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "mr",
+        "first": "lucas",
+        "last": "poulsen"
+      },
+      "location": {
+        "street": "7742 højdedraget",
+        "city": "gørløse",
+        "state": "nordjylland",
+        "postcode": 30861
+      },
+      "email": "lucas.poulsen@example.com",
+      "login": {
+        "username": "orangeladybug494",
+        "password": "marlboro",
+        "salt": "JBRpMrzS",
+        "md5": "1dd434af698ed81ecc6152049ffab715",
+        "sha1": "79566c211c9d65089b3a2a3d95d12604cd8c3ae0",
+        "sha256": "98cbe7378932879ebf105815f15e74dfbf7e999d34dd3efe89576fa7066f612b"
+      },
+      "dob": "1955-07-18 06:00:20",
+      "registered": "2012-01-14 22:30:54",
+      "phone": "41084837",
+      "cell": "52115580",
+      "id": {
+        "name": "CPR",
+        "value": "564697-1066"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/72.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/72.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/72.jpg"
+      },
+      "nat": "DK"
+    },
+    {
+      "gender": "female",
+      "name": {
+        "title": "miss",
+        "first": "باران",
+        "last": "كامياران"
+      },
+      "location": {
+        "street": "5221 راستوان",
+        "city": "بجنورد",
+        "state": "قم",
+        "postcode": 53885
+      },
+      "email": "باران.كامياران@example.com",
+      "login": {
+        "username": "greenrabbit556",
+        "password": "tyvugq",
+        "salt": "ie8n2dA5",
+        "md5": "46194f4f14bc71245b8b557396923b76",
+        "sha1": "d9e4dbd74de0ecb661f620d818715bf0bb75b5c3",
+        "sha256": "3b57f9c5a95e643d3e3f141f3666aec768ec0f98f35e586ae1574d741258db34"
+      },
+      "dob": "1992-07-03 08:21:02",
+      "registered": "2010-08-30 14:00:59",
+      "phone": "049-32127176",
+      "cell": "0959-911-1715",
+      "id": {
+        "name": "",
+        "value": null
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/71.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/71.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/71.jpg"
+      },
+      "nat": "IR"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "mr",
+        "first": "dylan",
+        "last": "king"
+      },
+      "location": {
+        "street": "8380 alexandra street",
+        "city": "palmerston north",
+        "state": "waikato",
+        "postcode": 96881
+      },
+      "email": "dylan.king@example.com",
+      "login": {
+        "username": "blackduck157",
+        "password": "julio",
+        "salt": "bKs6CxJO",
+        "md5": "f861e48f4aa2c72451c3676de39ee665",
+        "sha1": "6018a7e1da8420f6afffa34eae6aa9df7c043f04",
+        "sha256": "13e75ec40b8542f1807a63444a03f70d50d72f05f362785253caee347eaa996d"
+      },
+      "dob": "1963-10-30 22:45:09",
+      "registered": "2008-07-16 21:31:03",
+      "phone": "(303)-311-3072",
+      "cell": "(642)-711-3600",
+      "id": {
+        "name": "",
+        "value": null
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/20.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/20.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/20.jpg"
+      },
+      "nat": "NZ"
+    },
+    {
+      "gender": "female",
+      "name": {
+        "title": "miss",
+        "first": "candice",
+        "last": "renard"
+      },
+      "location": {
+        "street": "3065 rue de l'abbé-patureau",
+        "city": "aubervilliers",
+        "state": "saône-et-loire",
+        "postcode": 86950
+      },
+      "email": "candice.renard@example.com",
+      "login": {
+        "username": "ticklishwolf286",
+        "password": "cooler",
+        "salt": "DCzVV9jV",
+        "md5": "a318cdc0884c28aa5fba055f0c38af9c",
+        "sha1": "6491487bb958eca58c56484d5ffdd9aa22f7ac22",
+        "sha256": "6130a97752490b9a31aa4921b39f8bb9d9ca75d1d275c5e405ccf0d030ce3638"
+      },
+      "dob": "1949-09-26 03:03:41",
+      "registered": "2013-01-01 02:51:59",
+      "phone": "04-48-66-50-35",
+      "cell": "06-72-48-29-63",
+      "id": {
+        "name": "INSEE",
+        "value": "249824353264 61"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/78.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/78.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/78.jpg"
+      },
+      "nat": "FR"
+    },
+    {
+      "gender": "female",
+      "name": {
+        "title": "mrs",
+        "first": "sophie",
+        "last": "singh"
+      },
+      "location": {
+        "street": "9248 park rd",
+        "city": "minto",
+        "state": "nunavut",
+        "postcode": 85212
+      },
+      "email": "sophie.singh@example.com",
+      "login": {
+        "username": "whiteswan999",
+        "password": "straight",
+        "salt": "cpRozBLU",
+        "md5": "7aa38116edc74f00ba5a74eb9c8b6f9e",
+        "sha1": "d0ea8341a9597fde94023ec124c5335a695185f4",
+        "sha256": "002648ec8db7481cc7ed2dac05785b0a3de8fc9d811a71e333e547e017ca0d54"
+      },
+      "dob": "1966-04-26 14:49:11",
+      "registered": "2011-08-21 21:40:50",
+      "phone": "240-016-6775",
+      "cell": "008-085-4436",
+      "id": {
+        "name": "",
+        "value": null
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/32.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/32.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/32.jpg"
+      },
+      "nat": "CA"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "mr",
+        "first": "davut",
+        "last": "eliçin"
+      },
+      "location": {
+        "street": "8790 vatan cd",
+        "city": "çorum",
+        "state": "şanlıurfa",
+        "postcode": 28618
+      },
+      "email": "davut.eliçin@example.com",
+      "login": {
+        "username": "silverswan497",
+        "password": "iiiii",
+        "salt": "b0kxvnVA",
+        "md5": "d8e82e068d3568c6913dc4fde1a221b8",
+        "sha1": "b11a379a82cd3450e205a5ea47be12d7a8111657",
+        "sha256": "993ca25cd1054002fc91c02cf2a3529672c28284981c7ee19349ecbaf3fa40ab"
+      },
+      "dob": "1963-09-27 18:03:52",
+      "registered": "2015-06-16 11:33:18",
+      "phone": "(404)-025-9209",
+      "cell": "(725)-209-6852",
+      "id": {
+        "name": "",
+        "value": null
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/73.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/73.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/73.jpg"
+      },
+      "nat": "TR"
+    }
+  ],
+  "info": {
+    "seed": "userful",
+    "results": 10,
+    "page": 1,
+    "version": "1.1"
+  }
+}

@@ -8,10 +8,10 @@ import io.reactivex.Flowable
 interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsert(user: User)
+    fun upsert(user: User): Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsert(users: List<User>)
+    fun upsert(users: List<User>): List<Long>
 
     @Query("SELECT * FROM users")
     fun getAll(): Flowable<List<User>>

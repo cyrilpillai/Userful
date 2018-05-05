@@ -53,6 +53,6 @@ object Deps {
     const val testJUnit = "junit:junit:${Versions.jUnit}"
     const val testSupportRunner = "com.android.support.test:runner:${Versions.supportRunner}"
     const val testEspressoCore = "com.android.support.test.espresso:espresso-core:${Versions.espresso}"
-    const val testLiveData = "android.arch.core:core-testing:${Versions.archComp}"
+    const val testArchCompCore = "android.arch.core:core-testing:${Versions.archComp}"
     const val testRoom = "android.arch.persistence.room:testing:${Versions.room}"
 }

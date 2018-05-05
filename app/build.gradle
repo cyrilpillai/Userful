@@ -52,9 +52,11 @@ dependencies {
     kapt Deps.kaptDaggerAndroid
 
     testImplementation Deps.testJUnit
-    testImplementation Deps.testLiveData
-    testImplementation Deps.testRoom
+
 
     androidTestImplementation Deps.testSupportRunner
     androidTestImplementation Deps.testEspressoCore
+    androidTestImplementation Deps.testArchCompCore
+    androidTestImplementation Deps.testRoom
 }
+
