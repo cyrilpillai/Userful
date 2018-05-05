@@ -1,11 +1,10 @@
-package com.cyrilpillai.userful
+package com.cyrilpillai.userful.db.dao
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
 import android.arch.persistence.room.Room
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
 import com.cyrilpillai.userful.db.UserfulDb
-import com.cyrilpillai.userful.db.dao.UserDao
 import com.cyrilpillai.userful.db.entity.User
 import com.cyrilpillai.userful.networking.entity.ApiEnvelope
 import com.cyrilpillai.userful.testing.DependencyProvider
