@@ -14,8 +14,8 @@ data class User(
         @SerializedName("cell") val cell: String = "",
         @SerializedName("gender") val gender: String = "",
         @SerializedName("nat") val nationality: String = "",
-        @SerializedName("dob") val dateOfBirth: String = "",
-        @SerializedName("registered") val registeredDate: String = "",
+        @SerializedName("dob") @Embedded(prefix = "dob_") val dob: DateAndAge,
+        @SerializedName("registered") @Embedded(prefix = "registered_date_") val registeredDate: DateAndAge,
         @SerializedName("picture") @Embedded(prefix = "picture_") val picture: Picture,
         @SerializedName("location") @Embedded(prefix = "location_") val location: Location
 )

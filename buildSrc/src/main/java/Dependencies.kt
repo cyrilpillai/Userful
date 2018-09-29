@@ -4,8 +4,8 @@ object Versions {
 
     const val buildTools = "27.0.3"
     const val androidSupport = "27.1.1"
-    const val gradlePlugin = "3.1.2"
-    const val kotlin = "1.2.30"
+    const val gradlePlugin = "3.2.0"
+    const val kotlin = "1.2.51"
     const val rxJava = "2.1.13"
     const val rxAndroid = "2.0.2"
     const val constraintLayout = "1.1.0"

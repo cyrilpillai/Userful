@@ -6,7 +6,6 @@ import com.cyrilpillai.userful.list.UserEntity
 import com.cyrilpillai.userful.networking.entity.Outcome
 import com.cyrilpillai.userful.networking.schedulers.Scheduler
 import com.cyrilpillai.userful.utils.Constants
-import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.BehaviorSubject
 
@@ -48,17 +47,13 @@ class UsersListRepository(
     private fun fetchUsersFromRemote() {
         Log.d(Constants.APP_NAME, "fetchUsersFromRemote: ")
         remoteDataSource.fetchUsers()
+                .map {
+                    //localDataSource.deleteAllUsers()
+                    localDataSource.insertUsers(it)
+                }
                 .performOnBackOutOnMain(scheduler)
                 .subscribe(
-                        {
-                            Single.just(it)
-                                    .performOnBack(scheduler)
-                                    .subscribe { data ->
-                                        localDataSource.deleteAllUsers()
-                                        localDataSource.insertUsers(data)
-                                    }
-                                    .dispose()
-                        },
+                        { Log.d(Constants.APP_NAME, "Success") },
                         { error -> usersOutcome.failed(error) }
                 )
                 .addTo(compositeDisposable)

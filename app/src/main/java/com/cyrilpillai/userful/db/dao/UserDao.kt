@@ -5,20 +5,26 @@ import com.cyrilpillai.userful.db.entity.User
 import io.reactivex.Flowable
 
 @Dao
-interface UserDao {
+abstract class UserDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsert(user: User): Long
+    abstract fun upsert(user: User): Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsert(users: List<User>): List<Long>
+    abstract fun upsert(users: List<User>): List<Long>
 
     @Query("SELECT * FROM users")
-    fun getAll(): Flowable<List<User>>
+    abstract fun getAll(): Flowable<List<User>>
 
     @Query("SELECT * FROM users WHERE uid=:id")
-    fun getUserDetails(id: Long): Flowable<User>
+    abstract fun getUserDetails(id: Long): Flowable<User>
 
     @Query("DELETE FROM users")
-    fun truncate()
+    abstract fun truncate()
+
+    @Transaction
+    open fun insertUsers(users: List<User>): List<Long> {
+        truncate()
+        return upsert(users)
+    }
 }
