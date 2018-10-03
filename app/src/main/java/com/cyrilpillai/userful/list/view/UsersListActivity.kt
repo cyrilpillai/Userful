@@ -11,7 +11,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.cyrilpillai.userful.R
-import com.cyrilpillai.userful.R.id.*
 import com.cyrilpillai.userful.list.view.adapter.UserAdapter
 import com.cyrilpillai.userful.list.viewmodel.UsersListViewModel
 import com.cyrilpillai.userful.list.viewmodel.UsersListViewModelFactory
@@ -36,37 +35,20 @@ class UsersListActivity : AppCompatActivity() {
 
     private val context: Context by lazy { this@UsersListActivity }
 
+    private var menuRefresh: MenuItem? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_users_list)
-
-        rvUsers.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-        rvUsers.adapter = userAdapter
-
-        viewModel.usersLiveData.observe(this, Observer {
-            when (it) {
-                is Outcome.Progress -> {
-                    Log.d(Constants.APP_NAME, "Loading: ${it.loading}")
-                    changeViewVisibilies(ViewStatus.LOADING)
-                }
-                is Outcome.Success -> {
-                    Log.d(Constants.APP_NAME, "Success: ${it.data.size}")
-                    userAdapter.setData(it.data)
-                    changeViewVisibilies(ViewStatus.SUCCESS)
-                }
-                is Outcome.Failure -> {
-                    Log.d(Constants.APP_NAME, "Failure: ${it.e.localizedMessage}")
-                    changeViewVisibilies(ViewStatus.ERROR)
-                }
-            }
-        })
-        btnTryAgain.setOnClickListener { viewModel.getUsers() }
-        btnTryAgain.performClick()
+        setupObservers()
+        setupViews()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_users_list, menu)
+        menuRefresh = menu.findItem(R.id.menuRefresh)
+        btnTryAgain.performClick()
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -80,20 +62,49 @@ class UsersListActivity : AppCompatActivity() {
         }
     }
 
-    private fun changeViewVisibilies(viewStatus: ViewStatus) {
+    private fun setupViews() {
+        rvUsers.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        rvUsers.adapter = userAdapter
+        btnTryAgain.setOnClickListener { viewModel.getUsers() }
+    }
+
+    private fun setupObservers() {
+        viewModel.usersLiveData.observe(this, Observer {
+            when (it) {
+                is Outcome.Progress -> {
+                    Log.d(Constants.APP_NAME, "Loading: ${it.loading}")
+                    changeViewVisibilities(ViewStatus.LOADING)
+                }
+                is Outcome.Success -> {
+                    Log.d(Constants.APP_NAME, "Success: ${it.data.size}")
+                    userAdapter.setData(it.data)
+                    changeViewVisibilities(ViewStatus.SUCCESS)
+                }
+                is Outcome.Failure -> {
+                    Log.d(Constants.APP_NAME, "Failure: ${it.e.localizedMessage}")
+                    changeViewVisibilities(ViewStatus.ERROR)
+                }
+            }
+        })
+    }
+
+    private fun changeViewVisibilities(viewStatus: ViewStatus) {
         when (viewStatus) {
             ViewStatus.LOADING -> {
-                pbLoading.visibility = View.VISIBLE
+                menuRefresh?.isVisible = false
+                loadingView.visibility = View.VISIBLE
                 rvUsers.visibility = View.GONE
                 groupError.visibility = View.GONE
             }
             ViewStatus.SUCCESS -> {
-                pbLoading.visibility = View.GONE
+                menuRefresh?.isVisible = true
+                loadingView.visibility = View.GONE
                 rvUsers.visibility = View.VISIBLE
                 groupError.visibility = View.GONE
             }
             ViewStatus.ERROR -> {
-                pbLoading.visibility = View.GONE
+                menuRefresh?.isVisible = true
+                loadingView.visibility = View.GONE
                 rvUsers.visibility = View.GONE
                 groupError.visibility = View.VISIBLE
             }

@@ -9,4 +9,6 @@ class UsersListLocalDataSource(private val userDao: UserDao) : UsersListContract
     override fun insertUsers(users: List<User>) = userDao.insertUsers(users)
 
     override fun fetchUsers(): Flowable<List<User>> = userDao.getAll()
+
+    override fun deleteAllUsers() = userDao.truncate()
 }

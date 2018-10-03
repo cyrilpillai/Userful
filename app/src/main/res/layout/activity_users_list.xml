@@ -10,18 +10,12 @@
         style="@style/LinearRecyclerView"
         android:visibility="gone"
         tools:context=".list.view.UsersListActivity"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
-    <ProgressBar
-        android:id="@+id/pbLoading"
-        style="@style/Base.Widget.AppCompat.ProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <include
+        android:id="@+id/loadingView"
+        layout="@layout/view_user_loading"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
     <android.support.v7.widget.AppCompatImageView
@@ -69,5 +63,5 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:constraint_referenced_ids="tvError, imError, btnTryAgain"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 </android.support.constraint.ConstraintLayout>

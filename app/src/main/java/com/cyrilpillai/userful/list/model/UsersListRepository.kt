@@ -21,6 +21,7 @@ class UsersListRepository(
         Log.d(Constants.APP_NAME, "fetchUsers: ")
         usersOutcome.loading(true)
         if (forceUpdate) fetchUsersFromRemote()
+
         localDataSource.fetchUsers()
                 .performOnBackOutOnMain(scheduler)
                 .subscribe(
@@ -39,7 +40,7 @@ class UsersListRepository(
                                 fetchUsersFromRemote()
                             }
                         },
-                        { error -> fetchUsersFromRemote() }
+                        { _ -> fetchUsersFromRemote() }
                 )
                 .addTo(compositeDisposable)
     }
@@ -47,8 +48,9 @@ class UsersListRepository(
     private fun fetchUsersFromRemote() {
         Log.d(Constants.APP_NAME, "fetchUsersFromRemote: ")
         remoteDataSource.fetchUsers()
+                .doOnError {
+                    localDataSource.deleteAllUsers() }
                 .map {
-                    //localDataSource.deleteAllUsers()
                     localDataSource.insertUsers(it)
                 }
                 .performOnBackOutOnMain(scheduler)

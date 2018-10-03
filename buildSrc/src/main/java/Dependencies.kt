@@ -18,6 +18,7 @@ object Versions {
     const val picasso = "2.5.2"
     const val okHttpDownloader = "1.1.0"
     const val stetho = "1.5.0"
+    const val shimmer = "0.3.0"
     const val jUnit = "4.12"
     const val supportRunner = "1.0.2"
     const val espresso = "3.0.2"
@@ -49,6 +50,7 @@ object Deps {
     const val picassoOkhttpDownloader = "com.jakewharton.picasso:picasso2-okhttp3-downloader:${Versions.okHttpDownloader}"
     const val stetho = "com.facebook.stetho:stetho:${Versions.stetho}"
     const val stethoNetworkInterceptor = "com.facebook.stetho:stetho-okhttp3:${Versions.stetho}"
+    const val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
 
     const val testJUnit = "junit:junit:${Versions.jUnit}"
     const val testSupportRunner = "com.android.support.test:runner:${Versions.supportRunner}"

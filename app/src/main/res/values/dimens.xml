@@ -3,4 +3,11 @@
     <dimen name="padding">12dp</dimen>
     <dimen name="icon_size">50dp</dimen>
     <dimen name="error_image_size">100dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="margin">16dp</dimen>
+    <dimen name="big_margin">32dp</dimen>
+    <dimen name="massive_margin">64dp</dimen>
+    <dimen name="location_loading_width">250dp</dimen>
+    <dimen name="name_loading_width">150dp</dimen>
+    <dimen name="loading_text_height">18dp</dimen>
 </resources>

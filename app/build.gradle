@@ -45,6 +45,7 @@ dependencies {
     implementation Deps.picassoOkhttpDownloader
     implementation Deps.stetho
     implementation Deps.stethoNetworkInterceptor
+    implementation Deps.shimmer
 
     kapt Deps.kaptLifeCycle
     kapt Deps.kaptRoom
